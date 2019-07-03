@@ -2,9 +2,7 @@ Drone Show Animation Toolbox for Blender 2.7x
 ---------------------------------------------
 Martins Upitis (martinsh)
 
-Kristaps Brass (kkbrass)
-
-UgCS (www.ugcs.com) & (https://www.droneshowsoftware.com/)
+Kristaps Brass (kkbrass) - Proximity, Velocity checks and Export operators
 
 Installation
 ------------
