@@ -7,9 +7,9 @@ Kristaps Brass (kkbrass) - Proximity, Velocity checks and Export operators
 Installation
 ------------
 
-- download this as a zip
+- download as a zip
 - in Blender open User Preferences (Ctrl+Alt+U)
-- under Add-ons tab, press "Install Add-op from file..."
+- under Add-ons tab, press "Install Add-on from file..."
 - choose the downloaded .zip
 - check the checkbox to enable it and "Save User Settings" to make sure it stays enabled
 - Drone Show Animation Toolbox will appear in Blender Tool Shelf
