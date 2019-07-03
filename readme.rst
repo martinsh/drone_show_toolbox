@@ -2,8 +2,19 @@ Drone Show Animation Toolbox for Blender 2.7x
 ---------------------------------------------
 Martins Upitis (martinsh)
 
+Kristaps Brass (kkbrass)
+
 UgCS (www.ugcs.com) & (https://www.droneshowsoftware.com/)
 
+Installation
+------------
+
+- download this as a zip
+- in Blender open User Preferences (Ctrl+Alt+U)
+- under Add-ons tab, press "Install Add-op from file..."
+- choose the downloaded .zip
+- check the checkbox to enable it and "Save User Settings" to make sure it stays enabled
+- Drone Show Animation Toolbox will appear in Blender Tool Shelf
 
 Statistics
 ----------
