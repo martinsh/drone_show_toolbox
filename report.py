@@ -18,6 +18,7 @@
 
 # <pep8-80 compliant>
 
+# created by Campbell Barton
 # Report errors with the mesh.
 
 

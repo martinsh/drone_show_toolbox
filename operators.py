@@ -1,24 +1,11 @@
-# ##### BEGIN GPL LICENSE BLOCK #####
-#
-#  This program is free software; you can redistribute it and/or
-#  modify it under the terms of the GNU General Public License
-#  as published by the Free Software Foundation; either version 2
-#  of the License, or (at your option) any later version.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software Foundation,
-#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
-#
-# ##### END GPL LICENSE BLOCK #####
+''' 
+no license yet
 
-# <pep8-80 compliant>
+Copyright (C) 2019 BaseMotion (http://basemotion.eu)
+Created by Martins Upitis (martinsh) and Kristaps Brass (kkbrass)
+'''
 
-# All Operator
+# All Operators
 
 import bpy
 import bmesh
@@ -34,19 +21,7 @@ from . import (
         )
 
 
-def clean_float(text):
-    # strip trailing zeros: 0.000 -> 0.0
-    index = text.rfind(".")
-    if index != -1:
-        index += 2
-        head, tail = text[:index], text[index:]
-        tail = tail.rstrip("0")
-        text = head + tail
-    return text
-
 # ---------------
-# Geometry Checks
-
 def execute_check(self, context):
     obj = context.active_object
 
@@ -58,14 +33,14 @@ def execute_check(self, context):
 
     return {'FINISHED'}
 
-
+# not needed
 def multiple_obj_warning(self, context):
     if len(context.selected_objects) > 1:
         self.report({"INFO"}, "Multiple selected objects. Only the active one will be evaluated")
 
 
 class DroneSetTimeline(Operator):
-    """Ensure minimum thickness"""
+    """Set Up the Scene"""
     bl_idname = "drone.set_timeline"
     bl_label = "Drone Show Set Timeline"
 
@@ -120,7 +95,7 @@ class DroneCheckStatistics(Operator):
         return execute_check(self, context)
 
 class DroneCheckDistance(Operator):
-    """Check geometry for self intersections"""
+    """Check Proximity Warnings"""
     bl_idname = "drone.check_distance"
     bl_label = "Check Distance Between Drones"
     bl_options = {'REGISTER', 'UNDO'}
@@ -185,7 +160,7 @@ class DroneCheckDistance(Operator):
 
 
 class DroneCheckVelocity(Operator):
-    """Check geometry for self intersections"""
+    """Check Velocity Warnings"""
     bl_idname = "drone.check_velocity"
     bl_label = "Check Drone Velocity"
     bl_options = {'REGISTER', 'UNDO'}
@@ -253,7 +228,7 @@ class DroneCheckVelocity(Operator):
         return execute_check(self, context)
 
 class DroneAddDrones(Operator):
-    """Check geometry for self intersections"""
+    """Add Drone Grid"""
     bl_idname = "drone.add_drones"
     bl_label = "Spawn Drones"
     bl_options = {'REGISTER', 'UNDO'}
@@ -262,7 +237,6 @@ class DroneAddDrones(Operator):
     # ------------------------------
     # Poll
     # ------------------------------
-    
     def poll(cls, context):
         scene = bpy.context.scene
         drone_show = scene.drone_show
@@ -326,7 +300,7 @@ class DroneAddDrones(Operator):
 
 
 class DroneRemoveDrones(Operator):
-    """Check geometry for self intersections"""
+    """Remove all Drones and Data"""
     bl_idname = "drone.remove_drones"
     bl_label = "Delete Drones"
     bl_options = {'REGISTER', 'UNDO'}
@@ -335,7 +309,6 @@ class DroneRemoveDrones(Operator):
     # ------------------------------
     # Poll
     # ------------------------------
-    
     def poll(cls, context):
         scene = bpy.context.scene
         drone_show = scene.drone_show
@@ -447,21 +420,23 @@ class DroneShowSelectReport(Operator):
             # possible arrays are out of sync
             self.report({'WARNING'}, "Report is out of date, re-run check")
 
-        # cool, but in fact annoying
+        # could be useful
         # bpy.ops.view3d.view_selected(use_all_regions=False)
-
         return {'FINISHED'}
 
 
 
 # ------
 # Export
-
 class DroneShowExport(Operator):
-    """Export active object using print3d settings"""
+    """Export Drone Paths"""
     bl_idname = "drone.export"
     bl_label = "Drone Show Export"
+
     @classmethod
+    # ------------------------------
+    # Poll
+    # ------------------------------
     def poll(cls, context):
         scene = bpy.context.scene
         drone_show = scene.drone_show
