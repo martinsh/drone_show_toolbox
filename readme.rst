@@ -1,7 +1,8 @@
 Drone Show Animation Toolbox for Blender 2.7x
 ---------------------------------------------
 Martins Upitis (martinsh)
-UgCS (www.ugcs.com)&(https://www.droneshowsoftware.com/)
+
+UgCS (www.ugcs.com) & (https://www.droneshowsoftware.com/)
 
 
 Statistics
